@@ -1,18 +1,15 @@
 #!/bin/perl
 
+print "Unesite niz znakova\n";
+chomp(@arguments = <>);
+	
+print "Unesite broj ponavljanja znakova\n";
+chomp($num_of_repetitions = <>);
 
-if (scalar @ARGV lt 2) {
-	die "Invalid number of arguments - must be 2 or more\n";
+$count = 0;
+while ($count < $num_of_repetitions) {
+	print "@arguments\n";
+	$count += 1;
 }
-	
-else {
-	@arguments = @ARGV;
-	$num_of_repetitions = pop @arguments;
-	
-	$count = 0;
-	while ($count < $num_of_repetitions) {
-		print "@arguments\n";
-		$count += 1;
-	}
-}
+
 

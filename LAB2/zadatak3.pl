@@ -1,8 +1,15 @@
 #!bin/perl
 
+sub check_input {
 
-if (scalar @ARGV != 2) {
-	print "Read script from input\n";
+	if (scalar @ARGV == 0) {
+		print "Read script from input\n";
+		while(<>) {
+			push @ARGV, $_;
+			if (eof) {return};
+		}
+	}
+			
 }
 
 
@@ -23,7 +30,8 @@ sub parse {
 
 
 sub details { 
-	print " Datum: $date\n";
+	($day, $month, $year) = split '/', $date;
+	print " Datum: $year-$month-$day\n";
 	print " sat : broj pristupa\n";
 	print "-------------------------------------\n";
 }
@@ -39,7 +47,7 @@ sub end_of_file {
 
 
 
-
+check_input;
 while(<>) {
 
 	parse;
